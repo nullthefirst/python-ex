@@ -8,8 +8,9 @@ of a module and its functions and/or classes.
 """
 
 
-#TODO: define the 'EXPECTED_BAKE_TIME' constant below.
 EXPECTED_BAKE_TIME = 40
+
+PREPARATION_TIME = 2
 
 #TODO: Remove 'pass' and complete the 'bake_time_remaining()' function below.
 def bake_time_remaining(elapsed_bake_time):
@@ -30,8 +31,8 @@ def bake_time_remaining(elapsed_bake_time):
 # You might also consider defining a 'PREPARATION_TIME' constant.
 # You can do that on the line below the 'EXPECTED_BAKE_TIME' constant.
 # This will make it easier to do calculations.
-def preparation_time_in_minutes():
-    pass
+def preparation_time_in_minutes(num_of_layers):
+    return num_of_layers * PREPARATION_TIME
 
 
 #TODO: define the 'elapsed_time_in_minutes()' function below.
