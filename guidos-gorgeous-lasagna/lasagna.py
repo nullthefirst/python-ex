@@ -36,12 +36,19 @@ def preparation_time_in_minutes(number_of_layers):
     Returns:
         int: Total time in minutes multiplied by the 'PREPARATION_TIME' constant.
     """
+
     return number_of_layers * PREPARATION_TIME
 
 
 def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):
+    """Calculates the total elapsed number of minutes since preparation began.
+
+    Args:
+        number_of_layers (int): number of layers to be used in preparation.
+        elapsed_bake_time (int): total time in minutes that baking has occured for.
+
+    Returns:
+        int: Total preparation time in minutes summed with the total baking time.
+    """
+
     return preparation_time_in_minutes(number_of_layers) + elapsed_bake_time
-
-
-# TODO: Remember to go back and add docstrings to all your functions
-#  (you can copy and then alter the one from bake_time_remaining.)
