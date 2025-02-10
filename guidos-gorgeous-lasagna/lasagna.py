@@ -28,6 +28,14 @@ def bake_time_remaining(elapsed_bake_time):
 
 
 def preparation_time_in_minutes(number_of_layers):
+    """Calculate the preparation time in minutes, taking in the number of layers.
+
+    Args:
+        number_of_layers (int): number of layers to be used in preparation.
+
+    Returns:
+        int: Total time in minutes multiplied by the 'PREPARATION_TIME' constant.
+    """
     return number_of_layers * PREPARATION_TIME
 
 
