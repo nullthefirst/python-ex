@@ -23,8 +23,7 @@ def bake_time_remaining(elapsed_bake_time):
     based on the `EXPECTED_BAKE_TIME`.
     """
 
-    # return EXPECTED_BAKE_TIME - elapsed_bake_time
-    pass
+    return EXPECTED_BAKE_TIME - elapsed_bake_time
 
 
 #TODO: Define the 'preparation_time_in_minutes()' function below.
