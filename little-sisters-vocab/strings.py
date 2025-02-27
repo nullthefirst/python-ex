@@ -1,5 +1,7 @@
 """Functions for creating, transforming, and adding prefixes to strings."""
 
+import re
+
 
 def add_prefix_un(word):
     """Take the given word and add the 'un' prefix.
@@ -78,4 +80,9 @@ def adjective_to_verb(sentence, index):
     For example, ("It got dark as the sun set.", 2) becomes "darken".
     """
 
-    pass
+    word = sentence.split()[index]
+    word += "en"
+
+    return re.sub("[^\w\s]", "", word) # removes any special characters near the former adjective
+
+print(adjective_to_verb('It got dark as the sun set.', 2))
