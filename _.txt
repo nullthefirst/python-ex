@@ -1,6 +1,0 @@
-if card == "J" or card == "Q" or card == "K":
-        return 10
-    elif card == "A":
-        return 1
-    else:
-        return int(card)
