@@ -77,7 +77,17 @@ def is_blackjack(card_one, card_two):
     3.  '2' - '10' = numerical value.
     """
 
-    pass
+    def acer(card):
+        if card == "A":
+            return 11
+        else:
+            return card
+
+
+    if value_of_card(acer(card_one)) + value_of_card(acer(card_two)) == 21:
+        return True
+    else:
+        return False
 
 
 def can_split_pairs(card_one, card_two):
