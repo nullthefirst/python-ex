@@ -45,6 +45,7 @@ def make_word_groups(vocab_words):
 
     return word_groups
 
+
 def remove_suffix_ness(word):
     """Remove the suffix from the word while keeping spelling in mind.
 
@@ -54,7 +55,17 @@ def remove_suffix_ness(word):
     For example: "heaviness" becomes "heavy", but "sadness" becomes "sad".
     """
 
-    pass
+    word_content = word.split("ness")
+
+    word_root = word_content[0]
+
+    if word_root[-1] == "i":
+        word_root_chars = word_root.split()[0]
+        word_root_chars = word_root_chars[:-1]
+        word_root_chars += "y"
+        word_root = word_root_chars
+
+    return word_root
 
 
 def adjective_to_verb(sentence, index):
