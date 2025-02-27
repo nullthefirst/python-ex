@@ -24,9 +24,6 @@ def value_of_card(card):
         return int(card)
 
 
-print(value_of_card('8'))
-
-
 def higher_card(card_one, card_two):
     """Determine which card has a higher value in the hand.
 
@@ -38,7 +35,13 @@ def higher_card(card_one, card_two):
     3.  '2' - '10' = numerical value.
     """
 
-    pass
+    if value_of_card(card_one) == value_of_card(card_two):
+        return card_one, card_two
+    else:
+        if value_of_card(card_one) > value_of_card(card_two):
+            return card_one
+        else:
+            return card_two
 
 
 def value_of_ace(card_one, card_two):
