@@ -77,14 +77,14 @@ def is_blackjack(card_one, card_two):
     3.  '2' - '10' = numerical value.
     """
 
-    def acer(card):
+    def acer_high(card):
         if card == "A":
             return 11
         else:
             return card
 
 
-    if value_of_card(acer(card_one)) + value_of_card(acer(card_two)) == 21:
+    if value_of_card(acer_high(card_one)) + value_of_card(acer_high(card_two)) == 21:
         return True
     else:
         return False
@@ -112,4 +112,17 @@ def can_double_down(card_one, card_two):
     :return: bool - can the hand can be doubled down? (i.e. totals 9, 10 or 11 points).
     """
 
-    pass
+    def acer_low(card):
+        if card == "A":
+            return 1
+        else:
+            return card
+
+    doubles_check = [9, 10, 11]
+
+    hand_weight = value_of_card(acer_low(card_one)) + value_of_card(acer_low(card_two))
+
+    if hand_weight in doubles_check:
+        return True
+    else:
+        return False
