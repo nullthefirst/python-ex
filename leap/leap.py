@@ -9,9 +9,7 @@ def leap_year(year):
         year (int): year to be assessed per leap year logic.
     """
 
-    if year % 100 == 0 and year % 400 == 0:
-        return True
-    elif year % 4 == 0:
+    if year % 4 == 0 and year % 100 == 0 and year % 400 == 0:
         return True
     else:
         return False
