@@ -56,7 +56,17 @@ def letter_grades(highest):
             86 <= "A" <= 100
     """
 
-    pass
+    interval = int(((highest - 40) / 4))
+
+    grades = []
+
+    current = 41
+
+    while len(grades) < 4:
+        grades.append(current)
+        current += interval
+
+    return grades
 
 
 def student_ranking(student_scores, student_names):
