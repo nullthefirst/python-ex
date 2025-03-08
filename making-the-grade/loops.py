@@ -77,7 +77,12 @@ def student_ranking(student_scores, student_names):
     :return: list - of strings in format ["<rank>. <student name>: <score>"].
     """
 
-    pass
+    ranking = []
+
+    for index, score in enumerate(student_scores):
+        ranking.append("{}. {}: {}".format(index + 1, student_names[index], student_scores[index]))
+
+    return ranking
 
 
 def perfect_score(student_info):
