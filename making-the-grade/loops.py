@@ -80,7 +80,7 @@ def student_ranking(student_scores, student_names):
     ranking = []
 
     for index, score in enumerate(student_scores):
-        ranking.append("{}. {}: {}".format(index + 1, student_names[index], student_scores[index]))
+        ranking.append("{}. {}: {}".format(index + 1, student_names[index], score))
 
     return ranking
 
