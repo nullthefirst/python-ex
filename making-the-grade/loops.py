@@ -20,7 +20,9 @@ def count_failed_students(student_scores):
     :return: int - count of student scores at or below 40.
     """
 
-    pass
+    failed = sum([score <= 40 for score in student_scores])
+
+    return failed
 
 
 def above_threshold(student_scores, threshold):
