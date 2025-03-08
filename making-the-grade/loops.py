@@ -8,7 +8,9 @@ def round_scores(student_scores):
     :return: list - student scores *rounded* to nearest integer value.
     """
 
-    pass
+    rounded = [round(score) for score in student_scores]
+
+    return rounded
 
 
 def count_failed_students(student_scores):
