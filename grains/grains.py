@@ -18,4 +18,3 @@ def square(number):
 def total():
     return sum(bounty().values())
 
-print(total())
