@@ -1,2 +1,5 @@
 def response(hey_bob):
-    pass
+    if hey_bob.endswith("?"):
+        return "Sure."
+    else:
+        return "Whatever."
