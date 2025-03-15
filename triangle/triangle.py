@@ -5,6 +5,8 @@ def validate(sides):
 
     if a == 0 or b == 0 or c == 0:
         valid = False
+    elif a + b >= c or b + c >= a or a + c >= b:
+        valid = True
     else:
         valid = True
 
@@ -20,4 +22,6 @@ def isosceles(sides):
 
 
 def scalene(sides):
-    pass
+    a, b, c = sides
+
+    return validate(sides) and (True if a != b and b != c and a != c else False)
