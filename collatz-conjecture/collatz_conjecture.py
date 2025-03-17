@@ -2,10 +2,16 @@ def steps(number):
     if number <= 0:
         raise ValueError("Only positive integers are allowed")
 
-    if number % 2 == 0:
-        number = number / 2
-    else:
-        number = (number * 3) + 1
+    trace = 0
 
-    if number > 1:
-        steps(number)
+    while number > 1:
+        if number % 2 == 0:
+            number /= 2
+            trace += 1
+        else:
+            number *=3
+            number += 1
+            trace += 1
+
+    return trace
+    # steps(number)
