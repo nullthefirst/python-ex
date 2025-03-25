@@ -1,5 +1,7 @@
+vowels = ["a", "e", "i", "o", "u"]
+
 def rule_1(data):
-    starter = ["a", "e", "i", "o", "u", "xr", "yt"]
+    starter = vowels + ["xr", "yt"]
 
     verdict = False
 
@@ -11,22 +13,12 @@ def rule_1(data):
 
 
 def rule_2(data):
-    vowels = ["a", "e", "i", "o", "u"]
-
-    chars = list(data)
-
-    word = chars[:]
     verdict = False
 
     if data[0] not in vowels:
         verdict = True
 
-    while word[0] not in vowels:
-        non_vowel = word.pop(0)
-
-        word.append(non_vowel)
-
-    return [verdict, word]
+    return verdict
 
 
 def translate(text):
@@ -34,8 +26,14 @@ def translate(text):
 
     if rule_1(text):
         output += "ay"
-    elif rule_2(text)[0]:
-        output = rule_2(text)[1]
+    elif rule_2(text):
+        output = list(output)
+
+        while output[0] not in vowels:
+            non_vowel = output.pop(0)
+
+            output.append(non_vowel)
+
         output = "".join(output)
         output += "ay"
 
