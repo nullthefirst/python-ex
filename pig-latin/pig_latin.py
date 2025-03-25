@@ -46,39 +46,38 @@ def logic(data):
     return output
 
 
+def prior(data, marker):
+    anchor = data.index(marker) + 2
+
+    suffix = data[anchor:]
+
+    first_half = data[:anchor]
+
+    prefix = first_half[:anchor - 2]
+
+    vowel_present = []
+
+    for letter in prefix:
+        if letter in vowels:
+            vowel_present.append(True)
+
+    return (not any(vowel_present), [suffix, first_half])
+
 
 def translate(text):
     output = text
 
     if rule_1(text):
         output += "ay"
-    elif rule_3(text):
-        anchor = output.index("qu") + 2
-
-        # include logic to split string differently if any vowels exist before "qu"
-
-        suffix = output[anchor:]
-
-        first_half = output[:anchor]
-
-        prefix = first_half[:anchor - 2]
-
-        print(":::", prefix)
-
-        vowel_present = []
-
-        for letter in prefix:
-            if letter in vowels:
-                vowel_present.append(True)
-
-        if not any(vowel_present):
-            output = suffix + first_half + "ay"
+    elif rule_2(text):
+        if rule_3(text):
+            if prior(output, "qu")[0]:
+                suffix, first_half = prior(output, "qu")[1]
+                output = suffix + first_half + "ay"
+            else:
+                output = logic(output)
         else:
             output = logic(output)
-    elif rule_2(text):
-        output = logic(output)
 
     return output
 
-
-print(translate("liquid"))
