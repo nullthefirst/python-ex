@@ -46,7 +46,7 @@ def logic(data):
     return output
 
 
-def prior(data, marker):
+def qu_check(data, marker):
     anchor = data.index(marker) + 2
 
     suffix = data[anchor:]
@@ -71,12 +71,16 @@ def translate(text):
         output += "ay"
     elif rule_2(text):
         if rule_3(text):
-            if prior(output, "qu")[0]:
-                suffix, first_half = prior(output, "qu")[1]
+            if qu_check(output, "qu")[0]:
+                suffix, first_half = qu_check(output, "qu")[1]
                 output = suffix + first_half + "ay"
             else:
                 output = logic(output)
         else:
+            # if prior(output, "y")[0]:
+            #     suffix, first_half = prior(output, "y")[1]
+            #     output = suffix + first_half + "ay"
+
             output = logic(output)
 
     return output
