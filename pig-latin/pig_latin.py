@@ -20,6 +20,7 @@ def rule_2(data):
 
     return verdict
 
+
 def rule_3(data):
     verdict = False
 
@@ -27,6 +28,16 @@ def rule_3(data):
         verdict = True
 
     return verdict
+
+
+def rule_4(data):
+    verdict = False
+
+    if data[0] != "y" and "y" in data:
+        verdict = True
+
+    return verdict
+
 
 def logic(data):
     output = list(data)
@@ -46,14 +57,14 @@ def logic(data):
     return output
 
 
-def qu_check(data, marker):
-    anchor = data.index(marker) + 2
+def prior(data, marker, tuner):
+    anchor = data.index(marker) + tuner
 
     suffix = data[anchor:]
 
     first_half = data[:anchor]
 
-    prefix = first_half[:anchor - 2]
+    prefix = first_half[:anchor - tuner]
 
     vowel_present = []
 
@@ -71,17 +82,21 @@ def translate(text):
         output += "ay"
     elif rule_2(text):
         if rule_3(text):
-            if qu_check(output, "qu")[0]:
-                suffix, first_half = qu_check(output, "qu")[1]
+            if prior(output, "qu", 2)[0]:
+                suffix, first_half = prior(output, "qu", 2)[1]
+                output = suffix + first_half + "ay"
+            else:
+                output = logic(output)
+        elif rule_4(text):
+            if prior(output, "y", 0)[0]:
+                suffix, first_half = prior(output, "y", 0)[1]
                 output = suffix + first_half + "ay"
             else:
                 output = logic(output)
         else:
-            # if prior(output, "y")[0]:
-            #     suffix, first_half = prior(output, "y")[1]
-            #     output = suffix + first_half + "ay"
-
             output = logic(output)
 
     return output
 
+
+print(translate("rhythm"))
