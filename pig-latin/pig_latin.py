@@ -1,7 +1,7 @@
 def rule_1(data):
     starter = ["a", "e", "i", "o", "u", "xr", "yt"]
 
-    verdict = None
+    verdict = False
 
     for chars in starter:
         if data.lower().startswith(chars):
@@ -15,25 +15,16 @@ def rule_2(data):
 
     chars = list(data)
 
-    word = []
-    verdict = None
+    word = chars[:]
+    verdict = False
 
-    for letter in chars:
-        if letter not in vowels:
-            pass
-        else:
-            vowel_start = chars.index(letter)
+    if data[0] not in vowels:
+        verdict = True
 
-            # reorder word starting with vowel
-            word += chars[vowel_start:]
-            # attach constants to word end
-            word += chars[:vowel_start]
+    while word[0] not in vowels:
+        non_vowel = word.pop(0)
 
-            verdict = True
-
-    "".join(word)
-    word += "ay"
-    print(word)
+        word.append(non_vowel)
 
     return [verdict, word]
 
@@ -45,5 +36,8 @@ def translate(text):
         output += "ay"
     elif rule_2(text)[0]:
         output = rule_2(text)[1]
+        output = "".join(output)
+        output += "ay"
 
     return output
+
