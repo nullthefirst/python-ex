@@ -38,6 +38,14 @@ def rule_4(data):
 
     return verdict
 
+def spacer(data):
+    verdict = False
+
+    if " " in data:
+        verdict = True
+
+    return verdict
+
 
 def logic(data):
     output = list(data)
@@ -75,19 +83,33 @@ def prior(data, marker, tuner):
     return (not any(vowel_present), [suffix, first_half])
 
 
-def translate(text):
-    output = text
+def sentence(data):
+    feedback = []
 
-    if rule_1(text):
+    if spacer(data):
+        content = data.split(" ")
+
+        for word in content:
+            feedback.append(engine(word))
+
+        feedback = " ".join(feedback)
+
+    return feedback
+
+
+def engine(data):
+    output = data
+
+    if rule_1(data):
         output += "ay"
-    elif rule_2(text):
-        if rule_3(text):
+    elif rule_2(data):
+        if rule_3(data):
             if prior(output, "qu", 2)[0]:
                 suffix, first_half = prior(output, "qu", 2)[1]
                 output = suffix + first_half + "ay"
             else:
                 output = logic(output)
-        elif rule_4(text):
+        elif rule_4(data):
             if prior(output, "y", 0)[0]:
                 suffix, first_half = prior(output, "y", 0)[1]
                 output = suffix + first_half + "ay"
@@ -99,4 +121,13 @@ def translate(text):
     return output
 
 
-print(translate("rhythm"))
+def translate(text):
+    output = ""
+
+    if spacer(text):
+        output += sentence(text)
+    else:
+        output += engine(text)
+
+    return output
+
