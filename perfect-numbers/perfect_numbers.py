@@ -30,4 +30,9 @@ def classify(number):
     if number < 1:
         raise ValueError("Classification is only possible for positive integers.")
 
-
+    if sum(factors(number)) == number:
+        return feedback["equals"]
+    elif sum(factors(number)) > number:
+        return feedback["less"]
+    else:
+        return feedback["more"]
