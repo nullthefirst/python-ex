@@ -5,9 +5,13 @@ def factors(number):
     :return: list - the appropriate factors of the number supplied omitting the number itself
     """
 
+    output = list()
 
+    for i in range(1, number):
+        if number % i == 0:
+            output.append(i)
 
-
+    return output
 
 
 def classify(number):
