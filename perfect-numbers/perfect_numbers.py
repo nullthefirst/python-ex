@@ -1,3 +1,15 @@
+def factors(number):
+    """ Factors are numbers that can be multiplied by themselves repeated to derive a number.
+
+    :param number: int - number to derive factors from
+    :return: list - the appropriate factors of the number supplied omitting the number itself
+    """
+
+
+
+
+
+
 def classify(number):
     """ A perfect number equals the sum of its positive divisors.
 
