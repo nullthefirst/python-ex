@@ -5,6 +5,12 @@ def classify(number):
     :return: str the classification of the input integer
     """
 
+    feedback = {
+        "equals": "perfect",
+        "less": "abundant",
+        "more": "deficient"
+    }
+
     if number < 1:
         raise ValueError("Classification is only possible for positive integers.")
 
