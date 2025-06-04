@@ -15,4 +15,5 @@ def square(number):
 
 
 def total():
-    pass
+    return grains()[-1] - 1
+
