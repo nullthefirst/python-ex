@@ -22,7 +22,18 @@ def equilateral(sides):
 
 
 def isosceles(sides):
-    pass
+    a, b, c = sides
+
+    if istriangle(sides):
+        if equilateral(sides):
+            return True
+        else:
+            if (a == b and a != c) or (a == c and a != b) or (b == c and b != a):
+                return True
+            else:
+                return False
+    else:
+        return False
 
 
 def scalene(sides):
