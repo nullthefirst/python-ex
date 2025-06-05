@@ -26,4 +26,12 @@ def isosceles(sides):
 
 
 def scalene(sides):
-    pass
+    a, b, c = sides
+
+    if istriangle(sides):
+        if a != b and b != c and c != a:
+            return True
+        else:
+            return False
+    else:
+        return False
