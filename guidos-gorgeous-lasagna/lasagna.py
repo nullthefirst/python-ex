@@ -25,12 +25,20 @@ def bake_time_remaining(elapsed_bake_time):
     return EXPECTED_BAKE_TIME - elapsed_bake_time
 
 
-# PREPARATION_TIME =
+PREPARATION_TIME = 2
 
-# TODO: Define the 'preparation_time_in_minutes()' function below.
-# To avoid the use of magic numbers (see: https://en.wikipedia.org/wiki/Magic_number_(programming)), you should define a PREPARATION_TIME constant.
-# You can do that on the line below the 'EXPECTED_BAKE_TIME' constant.
-# This will make it easier to do calculations, and make changes to your code.
+
+def preparation_time_in_minutes(number_of_layers):
+    """Calculate preparation time in minutes.
+
+    Args:
+        number_of_layers (int): number of lasagna layers to be prepared.
+
+    Returns:
+        int: total number of minutes meal preparation will require.
+    """
+
+    return number_of_layers * PREPARATION_TIME
 
 
 # TODO: define the 'elapsed_time_in_minutes()' function below.
