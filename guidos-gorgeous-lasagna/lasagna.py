@@ -53,6 +53,4 @@ def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):
         the lasagna has spent baking in the oven.
     """
 
-    return bake_time_remaining(elapsed_bake_time) + preparation_time_in_minutes(
-        number_of_layers
-    )
+    return elapsed_bake_time + preparation_time_in_minutes(number_of_layers)
