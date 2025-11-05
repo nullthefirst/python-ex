@@ -36,7 +36,7 @@ def get_value_of_bills(denomination, number_of_bills):
     :return: int - calculated value of the bills.
     """
 
-    pass
+    return denomination * number_of_bills
 
 
 def get_number_of_bills(amount, denomination):
