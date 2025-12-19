@@ -16,7 +16,15 @@ def is_differing_sides(sides):
 
 
 def equilateral(sides):
-    pass
+    a, b, c = sides
+
+    if is_valid_lengths(sides):
+        if a == b and b == c and a == c:
+            return True
+        else:
+            return False
+    else:
+        return False
 
 
 def isosceles(sides):
