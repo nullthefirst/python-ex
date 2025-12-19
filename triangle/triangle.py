@@ -40,4 +40,12 @@ def isosceles(sides):
 
 
 def scalene(sides):
-    pass
+    a, b, c = sides
+
+    if is_valid_lengths(sides) and is_differing_sides(sides):
+        if a != b and b != c and a != c:
+            return True
+        else:
+            return False
+    else:
+        return False
