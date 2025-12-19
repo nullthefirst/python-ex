@@ -28,7 +28,15 @@ def equilateral(sides):
 
 
 def isosceles(sides):
-    pass
+    a, b, c = sides
+
+    if is_valid_lengths(sides) and is_differing_sides(sides):
+        if a == b or b == c or a == c:
+            return True
+        else:
+            return False
+    else:
+        return False
 
 
 def scalene(sides):
