@@ -71,6 +71,3 @@ def translate(text):
         output += base(text)
 
     return output
-
-translate("rhythm")
-translate("my")
