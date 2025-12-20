@@ -67,4 +67,15 @@ def fail_safe(temperature, neutrons_produced_per_second, threshold):
     3. 'DANGER' -> `temperature * neutrons per second` is not in the above-stated ranges
     """
 
-    pass
+    checker = temperature * neutrons_produced_per_second
+
+    if checker < (.9 * threshold):
+        return "LOW"
+    elif checker == threshold:
+        return "NORMAL"
+    elif checker >= (.9 * threshold) and checker <= threshold:
+        return "NORMAL"
+    elif checker <= (1.1 * threshold) and checker >= threshold:
+        return "NORMAL"
+    else:
+        return "DANGER"
