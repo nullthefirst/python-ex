@@ -9,22 +9,33 @@ def translate(text):
         elif "xr" in text or "yt" in text:
             statement += text + "ay"
     else:
-        holder = []
 
-        for char in text:
-            holder.append(char)
+        if "qu" in text:
+            holder = text.split("qu")
+            start = holder.pop(0)
+            holder.append(start)
+            word = "".join(holder)
 
-        while holder[0] not in vowels:
-            item = holder.pop(0)
-            holder.append(item)
+            statement += "qu" + "ay"
+            print(word)
+        else:
+            holder = []
 
-        statement = "".join(holder)
-        statement += "ay"
+            for char in text:
+                holder.append(char)
 
-    print(statement)
+            while holder[0] not in vowels:
+                item = holder.pop(0)
+                holder.append(item)
+
+            statement = "".join(holder)
+            statement += "ay"
 
     return statement
 
-translate("pig")
-translate("chair")
-translate("thrush")
+# translate("pig")
+# translate("chair")
+# translate("thrush")
+
+translate("quick")
+translate("square")
