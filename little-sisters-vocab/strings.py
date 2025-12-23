@@ -1,5 +1,7 @@
 """Functions for creating, transforming, and adding prefixes to strings."""
 
+import string
+
 
 def add_prefix_un(word):
     """Take the given word and add the 'un' prefix.
@@ -62,8 +64,6 @@ def adjective_to_verb(sentence, index):
 
     For example, ("It got dark as the sun set.", 2) becomes "darken".
     """
-
-    import string
 
     punctuation_remover = str.maketrans("", "", string.punctuation)
     sentence_cleaned = sentence.translate(punctuation_remover)
